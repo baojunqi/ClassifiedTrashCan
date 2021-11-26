@@ -1,0 +1,628 @@
+{
+  "schema": "https://iotx-tsl.oss-ap-southeast-1.aliyuncs.com/schema.json",
+  "profile": {
+    "version": "1.0",
+    "productKey": "a1S9VRi8QDG"
+  },
+  "properties": [
+    {
+      "identifier": "GeoLocation",
+      "name": "地理位置",
+      "accessMode": "rw",
+      "required": true,
+      "dataType": {
+        "type": "struct",
+        "specs": [
+          {
+            "identifier": "longitude",
+            "name": "经度",
+            "dataType": {
+              "type": "double",
+              "specs": {
+                "min": "-180",
+                "max": "180",
+                "unit": "°",
+                "unitName": "度",
+                "step": "0.01"
+              }
+            }
+          },
+          {
+            "identifier": "latitude",
+            "name": "纬度",
+            "dataType": {
+              "type": "double",
+              "specs": {
+                "min": "-90",
+                "max": "90",
+                "unit": "°",
+                "unitName": "度",
+                "step": "0.01"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "identifier": "remain_volume_kitchen",
+      "name": "厨余垃圾桶剩余量",
+      "accessMode": "rw",
+      "required": false,
+      "dataType": {
+        "type": "float",
+        "specs": {
+          "min": "0",
+          "max": "100",
+          "unit": "%",
+          "unitName": "百分比",
+          "step": "0.01"
+        }
+      }
+    },
+    {
+      "identifier": "remain_volume_recoverable",
+      "name": "可回收垃圾桶剩余量",
+      "accessMode": "rw",
+      "required": false,
+      "dataType": {
+        "type": "float",
+        "specs": {
+          "min": "0",
+          "max": "100",
+          "unit": "%",
+          "unitName": "百分比",
+          "step": "0.01"
+        }
+      }
+    },
+    {
+      "identifier": "remain_volume_others",
+      "name": "其他垃圾桶剩余量",
+      "accessMode": "rw",
+      "required": false,
+      "dataType": {
+        "type": "float",
+        "specs": {
+          "min": "0",
+          "max": "100",
+          "unit": "%",
+          "unitName": "百分比",
+          "step": "0.01"
+        }
+      }
+    },
+    {
+      "identifier": "remain_volume_harmful",
+      "name": "有害垃圾桶剩余量",
+      "accessMode": "rw",
+      "required": false,
+      "dataType": {
+        "type": "float",
+        "specs": {
+          "min": "0",
+          "max": "100",
+          "unit": "%",
+          "unitName": "百分比",
+          "step": "0.01"
+        }
+      }
+    },
+    {
+      "identifier": "temperature",
+      "name": "温度",
+      "accessMode": "rw",
+      "desc": "温度",
+      "required": false,
+      "dataType": {
+        "type": "float",
+        "specs": {
+          "min": "0",
+          "max": "100",
+          "unit": "°C",
+          "unitName": "摄氏度",
+          "step": "0.1"
+        }
+      }
+    },
+    {
+      "identifier": "Humidity",
+      "name": "湿度",
+      "accessMode": "rw",
+      "desc": "湿度",
+      "required": false,
+      "dataType": {
+        "type": "float",
+        "specs": {
+          "min": "0",
+          "max": "100",
+          "unit": "%RH",
+          "unitName": "相对湿度",
+          "step": "0.1"
+        }
+      }
+    },
+    {
+      "identifier": "AQI",
+      "name": "空气质量指数",
+      "accessMode": "rw",
+      "required": false,
+      "dataType": {
+        "type": "int",
+        "specs": {
+          "min": "0",
+          "max": "500",
+          "step": "1"
+        }
+      }
+    }
+  ],
+  "events": [
+    {
+      "identifier": "post",
+      "name": "post",
+      "type": "info",
+      "required": true,
+      "desc": "属性上报",
+      "method": "thing.event.property.post",
+      "outputData": [
+        {
+          "identifier": "GeoLocation",
+          "name": "地理位置",
+          "dataType": {
+            "type": "struct",
+            "specs": [
+              {
+                "identifier": "longitude",
+                "name": "经度",
+                "dataType": {
+                  "type": "double",
+                  "specs": {
+                    "min": "-180",
+                    "max": "180",
+                    "unit": "°",
+                    "unitName": "度",
+                    "step": "0.01"
+                  }
+                }
+              },
+              {
+                "identifier": "latitude",
+                "name": "纬度",
+                "dataType": {
+                  "type": "double",
+                  "specs": {
+                    "min": "-90",
+                    "max": "90",
+                    "unit": "°",
+                    "unitName": "度",
+                    "step": "0.01"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "identifier": "remain_volume_kitchen",
+          "name": "厨余垃圾桶剩余量",
+          "dataType": {
+            "type": "float",
+            "specs": {
+              "min": "0",
+              "max": "100",
+              "unit": "%",
+              "unitName": "百分比",
+              "step": "0.01"
+            }
+          }
+        },
+        {
+          "identifier": "remain_volume_recoverable",
+          "name": "可回收垃圾桶剩余量",
+          "dataType": {
+            "type": "float",
+            "specs": {
+              "min": "0",
+              "max": "100",
+              "unit": "%",
+              "unitName": "百分比",
+              "step": "0.01"
+            }
+          }
+        },
+        {
+          "identifier": "remain_volume_others",
+          "name": "其他垃圾桶剩余量",
+          "dataType": {
+            "type": "float",
+            "specs": {
+              "min": "0",
+              "max": "100",
+              "unit": "%",
+              "unitName": "百分比",
+              "step": "0.01"
+            }
+          }
+        },
+        {
+          "identifier": "remain_volume_harmful",
+          "name": "有害垃圾桶剩余量",
+          "dataType": {
+            "type": "float",
+            "specs": {
+              "min": "0",
+              "max": "100",
+              "unit": "%",
+              "unitName": "百分比",
+              "step": "0.01"
+            }
+          }
+        },
+        {
+          "identifier": "temperature",
+          "name": "温度",
+          "dataType": {
+            "type": "float",
+            "specs": {
+              "min": "0",
+              "max": "100",
+              "unit": "°C",
+              "unitName": "摄氏度",
+              "step": "0.1"
+            }
+          }
+        },
+        {
+          "identifier": "Humidity",
+          "name": "湿度",
+          "dataType": {
+            "type": "float",
+            "specs": {
+              "min": "0",
+              "max": "100",
+              "unit": "%RH",
+              "unitName": "相对湿度",
+              "step": "0.1"
+            }
+          }
+        },
+        {
+          "identifier": "AQI",
+          "name": "空气质量指数",
+          "dataType": {
+            "type": "int",
+            "specs": {
+              "min": "0",
+              "max": "500",
+              "step": "1"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "identifier": "error_is_full",
+      "name": "垃圾桶满溢警告",
+      "type": "alert",
+      "required": false,
+      "method": "thing.event.error_is_full.post",
+      "outputData": []
+    },
+    {
+      "identifier": "log_dustbin_broken",
+      "name": "垃圾桶异常信息",
+      "type": "error",
+      "required": false,
+      "method": "thing.event.log_dustbin_broken.post",
+      "outputData": []
+    },
+    {
+      "identifier": "log_put_rubbish",
+      "name": "投递记录",
+      "type": "info",
+      "required": false,
+      "method": "thing.event.log_put_rubbish.post",
+      "outputData": []
+    }
+  ],
+  "services": [
+    {
+      "identifier": "set",
+      "name": "set",
+      "required": true,
+      "callType": "async",
+      "desc": "属性设置",
+      "method": "thing.service.property.set",
+      "inputData": [
+        {
+          "identifier": "GeoLocation",
+          "name": "地理位置",
+          "dataType": {
+            "type": "struct",
+            "specs": [
+              {
+                "identifier": "longitude",
+                "name": "经度",
+                "dataType": {
+                  "type": "double",
+                  "specs": {
+                    "min": "-180",
+                    "max": "180",
+                    "unit": "°",
+                    "unitName": "度",
+                    "step": "0.01"
+                  }
+                }
+              },
+              {
+                "identifier": "latitude",
+                "name": "纬度",
+                "dataType": {
+                  "type": "double",
+                  "specs": {
+                    "min": "-90",
+                    "max": "90",
+                    "unit": "°",
+                    "unitName": "度",
+                    "step": "0.01"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "identifier": "remain_volume_kitchen",
+          "name": "厨余垃圾桶剩余量",
+          "dataType": {
+            "type": "float",
+            "specs": {
+              "min": "0",
+              "max": "100",
+              "unit": "%",
+              "unitName": "百分比",
+              "step": "0.01"
+            }
+          }
+        },
+        {
+          "identifier": "remain_volume_recoverable",
+          "name": "可回收垃圾桶剩余量",
+          "dataType": {
+            "type": "float",
+            "specs": {
+              "min": "0",
+              "max": "100",
+              "unit": "%",
+              "unitName": "百分比",
+              "step": "0.01"
+            }
+          }
+        },
+        {
+          "identifier": "remain_volume_others",
+          "name": "其他垃圾桶剩余量",
+          "dataType": {
+            "type": "float",
+            "specs": {
+              "min": "0",
+              "max": "100",
+              "unit": "%",
+              "unitName": "百分比",
+              "step": "0.01"
+            }
+          }
+        },
+        {
+          "identifier": "remain_volume_harmful",
+          "name": "有害垃圾桶剩余量",
+          "dataType": {
+            "type": "float",
+            "specs": {
+              "min": "0",
+              "max": "100",
+              "unit": "%",
+              "unitName": "百分比",
+              "step": "0.01"
+            }
+          }
+        },
+        {
+          "identifier": "temperature",
+          "name": "温度",
+          "dataType": {
+            "type": "float",
+            "specs": {
+              "min": "0",
+              "max": "100",
+              "unit": "°C",
+              "unitName": "摄氏度",
+              "step": "0.1"
+            }
+          }
+        },
+        {
+          "identifier": "Humidity",
+          "name": "湿度",
+          "dataType": {
+            "type": "float",
+            "specs": {
+              "min": "0",
+              "max": "100",
+              "unit": "%RH",
+              "unitName": "相对湿度",
+              "step": "0.1"
+            }
+          }
+        },
+        {
+          "identifier": "AQI",
+          "name": "空气质量指数",
+          "dataType": {
+            "type": "int",
+            "specs": {
+              "min": "0",
+              "max": "500",
+              "step": "1"
+            }
+          }
+        }
+      ],
+      "outputData": []
+    },
+    {
+      "identifier": "get",
+      "name": "get",
+      "required": true,
+      "callType": "async",
+      "desc": "属性获取",
+      "method": "thing.service.property.get",
+      "inputData": [
+        "GeoLocation",
+        "remain_volume_kitchen",
+        "remain_volume_recoverable",
+        "remain_volume_others",
+        "remain_volume_harmful",
+        "temperature",
+        "Humidity",
+        "AQI"
+      ],
+      "outputData": [
+        {
+          "identifier": "GeoLocation",
+          "name": "地理位置",
+          "dataType": {
+            "type": "struct",
+            "specs": [
+              {
+                "identifier": "longitude",
+                "name": "经度",
+                "dataType": {
+                  "type": "double",
+                  "specs": {
+                    "min": "-180",
+                    "max": "180",
+                    "unit": "°",
+                    "unitName": "度",
+                    "step": "0.01"
+                  }
+                }
+              },
+              {
+                "identifier": "latitude",
+                "name": "纬度",
+                "dataType": {
+                  "type": "double",
+                  "specs": {
+                    "min": "-90",
+                    "max": "90",
+                    "unit": "°",
+                    "unitName": "度",
+                    "step": "0.01"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "identifier": "remain_volume_kitchen",
+          "name": "厨余垃圾桶剩余量",
+          "dataType": {
+            "type": "float",
+            "specs": {
+              "min": "0",
+              "max": "100",
+              "unit": "%",
+              "unitName": "百分比",
+              "step": "0.01"
+            }
+          }
+        },
+        {
+          "identifier": "remain_volume_recoverable",
+          "name": "可回收垃圾桶剩余量",
+          "dataType": {
+            "type": "float",
+            "specs": {
+              "min": "0",
+              "max": "100",
+              "unit": "%",
+              "unitName": "百分比",
+              "step": "0.01"
+            }
+          }
+        },
+        {
+          "identifier": "remain_volume_others",
+          "name": "其他垃圾桶剩余量",
+          "dataType": {
+            "type": "float",
+            "specs": {
+              "min": "0",
+              "max": "100",
+              "unit": "%",
+              "unitName": "百分比",
+              "step": "0.01"
+            }
+          }
+        },
+        {
+          "identifier": "remain_volume_harmful",
+          "name": "有害垃圾桶剩余量",
+          "dataType": {
+            "type": "float",
+            "specs": {
+              "min": "0",
+              "max": "100",
+              "unit": "%",
+              "unitName": "百分比",
+              "step": "0.01"
+            }
+          }
+        },
+        {
+          "identifier": "temperature",
+          "name": "温度",
+          "dataType": {
+            "type": "float",
+            "specs": {
+              "min": "0",
+              "max": "100",
+              "unit": "°C",
+              "unitName": "摄氏度",
+              "step": "0.1"
+            }
+          }
+        },
+        {
+          "identifier": "Humidity",
+          "name": "湿度",
+          "dataType": {
+            "type": "float",
+            "specs": {
+              "min": "0",
+              "max": "100",
+              "unit": "%RH",
+              "unitName": "相对湿度",
+              "step": "0.1"
+            }
+          }
+        },
+        {
+          "identifier": "AQI",
+          "name": "空气质量指数",
+          "dataType": {
+            "type": "int",
+            "specs": {
+              "min": "0",
+              "max": "500",
+              "step": "1"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
